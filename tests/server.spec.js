@@ -37,4 +37,13 @@ describe('server/app.js', function() {
       done();
     });
   });
+  it('user-created test', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(err).not.exist;
+        expect(JSON.stringify(res.text)).to.contain('Wow whats hapening');
+        done();
+      });
+    });
 })
